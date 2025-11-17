@@ -1,0 +1,17 @@
+syntax = "proto3";
+package testchain.testchain.v1;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "testchain/testchain/v1/params.proto";
+
+option go_package = "testchain/x/testchain/types";
+
+// GenesisState defines the testchain module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+package testchain.mytoken.v1;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "testchain/mytoken/v1/params.proto";
+
+option go_package = "testchain/x/mytoken/types";
+
+// GenesisState defines the mytoken module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}
